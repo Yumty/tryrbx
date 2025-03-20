@@ -1,0 +1,183 @@
+local _0x4173 = game:GetService("HttpService")
+local _0x3281 = pcall(function()
+    return loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+end)
+
+if not _0x3281 then
+    warn("Rayfield failed to load. Check your connection or Rayfield site status.")
+    return
+end
+
+local _0x4321 = Rayfield:CreateWindow({
+    Name = "Yumty Hub",
+    Icon = 0,
+    LoadingTitle = "Hello Cheater",
+    LoadingSubtitle = "by Yumty",
+    Theme = "Default",
+    KeySystem = true,
+    KeySettings = {
+        Title = "Access Required",
+        Subtitle = "Please enter the key",
+        Note = "The key is provided to you by the developer",
+        FileName = "Key",
+        SaveKey = true,
+        GrabKeyFromSite = false,
+        Key = {"Yumlol"}
+    }
+})
+
+local _0x8765 = game.Players.LocalPlayer
+local _0x5432 = _0x8765.Character or _0x8765.CharacterAdded:Wait()
+
+local _0x1020 = {
+    {position = Vector3.new(3743.888, 56.064, 1252.914), regionID = 101026, name = "Medium W4"},
+    {position = Vector3.new(3789.221, 58.359, 1170.776), regionID = 101027, name = "Hard W4"},
+    {position = Vector3.new(4038.754, 66.838, 1152.611), regionID = 101029, name = "Final Boss W4"},
+    {position = Vector3.new(3654.239, 57.639, 1256.599), regionID = 101025, name = "Starter W4"},
+    {position = Vector3.new(3930.021, 59.403, 1144.899), regionID = 101028, name = "Extreme W4"},
+    {position = Vector3.new(1778.782, -131.956, 2861.051), regionID = 101013, name = "Starter W3"},
+    {position = Vector3.new(1376.214, -128.507, 2806.659), regionID = 101014, name = "Medium W3"},
+    {position = Vector3.new(1376.214, -128.507, 2806.659), regionID = 101016, name = "Extreme W3"},
+    {position = Vector3.new(2017.27747, -129.449, 2760.642), regionID = 101015, name = "hard W3"},
+    {position = Vector3.new(1992.401, -67.646, 2805.196), regionID = 101017, name = "Final Boss W3"},
+    {position = Vector3.new(-5607.935, 1465.029, 4590.8281), regionID = 101018, name = "Secret Boss W3"},
+    {position = Vector3.new(-718.245, 56.460, 1276.087), regionID = 101007, name = "Starter W2"},
+    {position = Vector3.new(-788.490, 57.343, 1322.441), regionID = 101008, name = "Medium W2"},
+    {position = Vector3.new(2008.667, -127.235, 2758.065), regionID = 101015, name = "Hard W2"},
+    {position = Vector3.new(-928.165, 57.949, 1386.446), regionID = 101010, name = "Extreme W2"},
+    {position = Vector3.new(-1065.467, 61.157, 1293.093), regionID = 101011, name = "Final Boss W2"},
+    {position = Vector3.new(-886.793, 61.067, 1478.414), regionID = 101012, name = "Secret Boss W2"},
+    {position = Vector3.new(37.616, 70.968, -197.907), regionID = 101002, name = "Starter W1"},
+    {position = Vector3.new(14.021, 70.968, -195.862), regionID = 101003, name = "Medium W1"},
+    {position = Vector3.new(-15.889, 71.023, -195.283), regionID = 101004, name = "Hard W1"},
+    {position = Vector3.new(-37.602, 70.963, -195.964), regionID = 101005, name = "Extreme W1"},
+    {position = Vector3.new(-1.624, 69.250, -166.335), regionID = 101006, name = "Final Boss W1"},
+    {position = Vector3.new(-1220.133, 159.384, 3846.932), regionID = 1, name = "Infinity Tower"}
+}
+
+local _0x9832 = false
+local _0x9475 = {}
+local _0x7412 = 1
+local _0x6534 = tick()
+local _0x5292 = 10
+local _0x3312 = false
+local _0x4161 = false
+local _0x5231 = tick()
+local _0x4981 = false
+
+local function _0x34ab()
+    local _0x2276 = workspace:WaitForChild("EnemyFolder")
+    while true do
+        local _0x02f4 = false
+        for _, _0x35e3 in pairs(_0x2276:GetChildren()) do
+            if _0x35e3:IsA("Model") and _0x35e3:FindFirstChild("HumanoidRootPart") then
+                _0x02f4 = true
+                _0x5231 = tick()
+                break
+            end
+        end
+        if not _0x02f4 and (tick() - _0x5231 >= 50) then
+            local _0x1778 = CFrame.new(-1220.133, 159.384, 3846.932)
+            _0x5432.HumanoidRootPart.CFrame = _0x1778
+            _0x5231 = tick()
+        end
+        wait(1)
+    end
+end
+
+local function _0x5df2(_0x0a5e)
+    wait(2)
+    local _0x4a2f = { [1] = _0x0a5e }
+    game:GetService("ReplicatedStorage").Remotes.Region.EnterRegion:FireServer(unpack(_0x4a2f))
+end
+
+local function _0x03f7()
+    while _0x9832 do
+        wait(1)
+        if #_0x9475 == 0 then
+            wait(2)
+            continue
+        end
+        if _0x5432 and _0x5432:FindFirstChild("Humanoid") and _0x5432.Humanoid.Health > 0 then
+            if tick() - _0x6534 >= _0x5292 then
+                local _0x2767 = _0x1020[_0x9475[_0x7412]]
+                if not _0x2767 then
+                    return
+                end
+                _0x5432:SetPrimaryPartCFrame(CFrame.new(_0x2767.position))
+                _0x5df2(_0x2767.regionID)
+                _0x7412 = (_0x7412 % #_0x9475) + 1
+                wait(10)
+            end
+        end
+    end
+end
+
+local function _0x6d1a(_0x2169)
+    local _0x4a2f = { [1] = _0x2169 }
+    local _0x5289 = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Skill"):WaitForChild("ReleaseCmd")
+    if _0x5289 then
+        _0x5289:FireServer(unpack(_0x4a2f))
+    else
+        warn("Skill remote not found!")
+    end
+end
+
+local function _0x424b()
+    while _0x4161 do
+        wait(1)
+        _0x6d1a(1)
+        wait(1)
+        _0x6d1a(2)
+        wait(1)
+        _0x6d1a(3)
+    end
+end
+
+local function _0x2f88()
+    local _0x3e9c = _0x5432:FindFirstChild("Humanoid")
+    if _0x3e9c then
+        local _0x9e4f = _0x3e9c.Health
+        _0x3e9c.HealthChanged:Connect(function(_0x1b68)
+            if _0x1b68 < _0x9e4f then
+                _0x6534 = tick()
+            end
+            _0x9e4f = _0x1b68
+        end)
+    else
+        warn("[ERROR] No Humanoid found in character!")
+    end
+end
+
+local function _0x3c1f()
+    local _0x2276 = workspace:WaitForChild("EnemyFolder")
+    local _0x5231 = tick()
+    while true do
+        if _0x3312 then
+            local _0x02f4 = false
+            for _, _0x35e3 in pairs(_0x2276:GetChildren()) do
+                if _0x35e3:IsA("Model") and _0x35e3:FindFirstChild("HumanoidRootPart") then
+                    _0x5432 = _0x8765.Character or _0x8765.CharacterAdded:Wait()
+                    local _0x35e3_HRP = _0x35e3:FindFirstChild("HumanoidRootPart")
+                    if _0x35e3_HRP then
+                        if _0x5432:FindFirstChild("HumanoidRootPart") then
+                            _0x5432.HumanoidRootPart.CFrame = _0x35e3_HRP.CFrame
+                            local _0x3f21 = _0x5432:WaitForChild("CharacterClient"):WaitForChild("CombatController")
+                            local _0x5d38 = require(_0x3f21:WaitForChild("State"))
+                            if _0x5d38 and _0x5d38.Fire then
+                                _0x5d38:Fire()
+                            end
+                        end
+                    end
+                    _0x02f4 = true
+                    _0x5231 = tick()
+                end
+            end
+            if not _0x02f4 and (tick() - _0x5231 >= 3) then
+            end
+        end
+        wait(1)
+    end
+end
+
+spawn(_0x3c1f)
